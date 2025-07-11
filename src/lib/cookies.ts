@@ -2,6 +2,8 @@ export async function verifyCookieValue(
 	signedValue: string,
 	secret: string
 ): Promise<string | null> {
+	if (!signedValue) return null;
+
 	const parts = signedValue.split('.');
 	if (parts.length !== 2) return null;
 
